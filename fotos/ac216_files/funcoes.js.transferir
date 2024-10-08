@@ -1,0 +1,2347 @@
+if (window.location.href.indexOf("opbiofoot") > -1) {
+    var pasta_home = "/";
+}else{
+    var pasta_home = "/";
+}
+
+var pasta_home = "/";
+
+var carro1 = null;
+var carro2 = null;
+var fhalCL = 0;
+var fhalXL = 0;
+var diagramacao = 0;
+var wCarro2 = $(window).width();
+var windowHeight = 0;
+
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+
+function ajustaIpad(is_iPad){
+    if(is_iPad){
+        var tmIpad = setTimeout(function(){
+            if((window.innerHeight < window.innerWidth) && window.innerWidth == 1024){
+                $("#full_home_institucional_texto_mobile, #full_home_revendedor_mobile").css({
+                    "display":"none"
+                });
+                $("#full_home_institucional_texto").css({
+                    "display":"block",
+                    "width":"50%",
+                    "height":"80vh"
+                });
+    
+                $("#full_home_revendedor_l, #full_home_revendedor_r").css({
+                    "display":"block",
+                    "width":"50%",
+                    "height":"60vh"
+                });
+    
+                $("#full_home_institucional_foto").css({
+                    "display":"block",
+                    "width":"50%",
+                    "height":"80vh"
+                });
+    
+                $("#full_home_institucional_texto_tit").css({
+                    "font-size":"3vmax",
+                    "margin-top":"0px"
+                });
+    
+                $("#full_home_institucional_texto_txt").css({
+                    "font-size":"1.8vmax"
+                });
+    
+                $(".full_home_contadores_container_contador").css({
+                    "padding-top":"9vmax"
+                });
+    
+                $("#full_home_revendedor_l, #full_home_revendedor_r").css({
+                    "padding-left":"8%",
+                    "padding-right":"8%"
+                });
+
+                $("#full_home_revendedor_l_tit, #full_home_revendedor_l_sub, .full_home_revendedor_l_lst").css({
+                    "text-align":"left",
+                    "margin":"0"
+                });
+
+                $("#full_home_revendedor_l_tit, #full_home_revendedor_l_sub, .full_home_revendedor_l_lst, #full_home_revendedor_r_tit, #full_home_revendedor_r_txt, #full_home_revendedor_r_btn, #full_home_revendedor_m_tit, #full_home_revendedor_m_txt, #full_home_revendedor_m_btn").css({
+                    "float":"left",
+                    "width":"100%",
+                    "margin-bottom":"0.2vw",
+                    "font-family":"roboto_con",
+                    "color":"#ffffff",
+                    "box-sizing":"border-box"
+                });
+    
+                $("#full_home_revendedor_l_tit").css({
+                    "color":"#fef045",
+                    "text-transform":"uppercase",
+                    "font-size":"2.5vmax",
+                    "text-align":"left"
+                });
+
+                $("#full_home_revendedor_l_sub").css({
+                    "text-transform":"uppercase",
+                    "font-family":"roboto",
+                    "font-size":"2vmax",
+                    "text-align":"left",
+                    "margin-bottom":"2vw"
+                });
+
+                $(".full_home_revendedor_l_lst").css({
+                    "font-size":"1.8vmax",
+                    "text-align":"left",
+                    "display":"list-item",
+                    "margin-left":"1.8vw",
+                    "list-style-type":"circle"
+                });
+
+                $("#full_home_revendedor_r_tit").css({
+                    "font-size":"2.5vmax",
+                    "text-align":"center",
+                    "margin-bottom":"2vw"
+                });
+    
+                $("#full_home_revendedor_r_txt").css({
+                    "font-size":"1.8vmax",
+                    "text-align":"center",
+                    "margin-bottom":"2vw"
+                });
+
+                $("#full_home_revendedor_r_btn").css({
+                    "font-size":"1.8vmax",
+                    "text-align":"center",
+                    "padding":"1vmax",
+                    "width":"100%",
+                    "margin-bottom":"2vw"
+                });
+                
+                $(".full_home_produtos_categoria, .full_home_produtos_segmento").css({
+                    "width":"24%",
+                    "height":"30vh",
+                    "padding-left":"2vw",
+                    "padding-right":"2vw",
+                    "margin-top":"1vh",
+                    "margin-bottom":"1vh"
+                });
+
+                $(".full_home_produtos_categoria_texto, .full_home_produtos_segmento_texto").css({
+                    "height":"30vh",
+                    "margin-top":"-30vh"
+                });
+
+                $(".full_home_produtos_categoria_texto_ct, .full_home_produtos_segmento_texto_ct").css({
+                    "height":"30vh"
+                });
+
+                $(".full_home_produtos_categoria_texto_ct span, .full_home_produtos_segmento_texto_ct span").css({
+                    "font-size":"2vh"
+                });
+
+                $(".full_home_produtos_categoria_container, .full_home_produtos_segmento_container").css({
+                    "height":"30vh",
+                    "background-size":"auto 60vh"
+                });
+            }else if(window.innerWidth == 768){
+                $("#full_home_institucional_texto_mobile, #full_home_revendedor_mobile, #full_home_revendedor_m_tit").css({
+                    "display":"block"
+                });
+                $("#full_home_institucional_texto, #full_home_revendedor_l, #full_home_revendedor_r").css({
+                    "display":"none"
+                });
+                $("#full_home_institucional_foto").css({
+                    "display":"block",
+                    "width":"100%",
+                    "height":"50vh"
+                });
+
+                $(".full_home_produtos_categoria, .full_home_produtos_segmento").css({
+                    "width":"50%",
+                    "height":"30vh",
+                    "padding-left":"2vw",
+                    "padding-right":"2vw",
+                    "margin-top":"1vh",
+                    "margin-bottom":"1vh"
+                });
+
+                $(".full_home_produtos_categoria_texto, .full_home_produtos_segmento_texto").css({
+                    "height":"30vh",
+                    "margin-top":"-30vh"
+                });
+
+                $(".full_home_produtos_categoria_texto_ct, .full_home_produtos_segmento_texto_ct").css({
+                    "height":"30vh"
+                });
+
+                $(".full_home_produtos_categoria_texto_ct span, .full_home_produtos_segmento_texto_ct span").css({
+                    "font-size":"2vh"
+                });
+
+                $(".full_home_produtos_categoria_container, .full_home_produtos_segmento_container").css({
+                    "height":"30vh",
+                    "background-size":"auto 60vh"
+                });
+            }
+        },100);
+    }
+}
+
+$(window).on("load",function () {
+    var maxItemC = 0;
+    $(".carro_home2_item_cont").each(function(){
+        var itemC2 = $(this).height();
+        if(itemC2 > maxItemC){
+            maxItemC = itemC2;
+        }
+    });
+    $(".carro_home2_item_cont").css({
+        height:maxItemC
+    });
+
+    $(".op-nav button.op-prev").css({
+        "top":"60vh !important"
+    });
+});
+
+$(document).ready(function(){
+    isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+    var stickyOffset = $("#full_menu").offset().top;
+    var is_iPad = navigator.userAgent.match(/iPad/i) != null;
+    diagramacao = $("#diagramacao").val();
+    ajustaIpad(is_iPad);
+    
+    windowHeight = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    $('html, body').css({'height':windowHeight});
+    
+    $("#menu_categorias").css({
+        "height":"0",
+        "overflow":"hidden",
+        "background-color":"rgba(255,255,255,0)",
+        "border-bottom":"rgba(248,226,52,0) solid 3px"
+    });
+
+    $("#menu_segmentos").css({
+        "height":"0",
+        "overflow":"hidden",
+        "background-color":"rgba(255,255,255,0)",
+        "border-bottom":"rgba(248,226,52,0) solid 3px"
+    });
+
+    $("#menu_hotsites").css({
+        "height":"0",
+        "overflow":"hidden",
+        "background-color":"rgba(255,255,255,0)",
+        "border-bottom":"rgba(248,226,52,0) solid 3px"
+    });
+
+    $(".black_menu").on("click",function(e){
+        $("#menu_categorias").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+
+        $("#menu_segmentos").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+
+        $("#menu_hotsites").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+
+        $(this).removeClass("black_menu_aberto");
+    });
+    
+    var xImgchbl = $(".imgchbl").outerWidth();
+    if(xImgchbl > 0){
+        $(".blifr").css({
+            width:xImgchbl,
+            height:xImgchbl
+        });
+    }
+    
+    $("body").click(function() {
+        $("#menu_segmentos").css({
+            "height":"0",
+            "overflow":"hidden"
+        });
+        $("#menu_categorias").css({
+            "height":"0",
+            "overflow":"hidden"
+        });
+
+        $("#menu_hotsites").css({
+            "height":"0",
+            "overflow":"hidden"
+        });
+
+        $(".black_menu").removeClass("black_menu_aberto");
+
+        if(fhalCL == 1){
+            $("#full_header_area_logo_cl").removeClass('full_header_area_logo_cl');
+            fhalCL = 0;
+        }
+
+        if(fhalXL == 1){
+            $("#full_home_footer_contato").removeClass('full_home_footer_contato_op');
+            $(".full_home_footer_end_email").show();
+            $(".full_home_footer_end_whatsapp").show();
+            $(".full_home_footer_end_revendedor").show();
+            fhalXL = 0;
+        }
+    });
+    
+    $("#footer_contato_btn").unbind("click");
+    $("#footer_contato_btn").on("click",function(e){
+        enviaContato2();
+    });
+    
+    $("#frm_ligamos_btn").unbind("click");
+    $("#frm_ligamos_btn").on("click",function(e){
+        enviaLigamos();
+    });
+
+    $("#mobi_menu_item_cl").unbind("click");
+    $("#mobi_menu_item_cl").on("click",function(e){
+        $("#full_header_area_logo_cl_premob").show();
+
+        $("#frm_ligamos_btn_mob2").unbind("click");
+        $("#frm_ligamos_btn_mob2").on("click",function(e){
+            $("#full_header_area_logo_cl_premob").hide();
+        });
+        
+        $("#frm_ligamos_btn_mob").unbind("click");
+        $("#frm_ligamos_btn_mob").on("click",function(e){
+            enviaLigamosMob();
+        });
+    });
+
+    $("#frm_ligamos_btn_mob").unbind("click");
+    $("#frm_ligamos_btn_mob").on("click",function(e){
+        enviaLigamosMob();
+    });
+    
+    $("#frm_ligamos_btn_mob2").unbind("click");
+    $("#frm_ligamos_btn_mob2").on("click",function(e){
+        $("#full_header_area_logo_cl_premob").hide();
+    });
+
+    if($(window).width() < 800 || isMobile.any()){
+        $(".full_banner_carro_container").each(function(){
+            var aImgMob1 = "url("+$(this).attr("imgmob")+")";
+            if($(this).attr("imgmob") != ""){$(this).css({"background-image":aImgMob1});}
+        });
+        $(".full_banner_carro_div_img_full").each(function(){
+            var aImgMob2 = "url("+$(this).attr("imgmob")+")";
+            if($(this).attr("imgmob") != ""){$(this).css({"background-image":aImgMob2});}
+       });
+    }else{
+        $(".full_banner_carro_container").each(function(){
+            var aImgMob1 = "url("+$(this).attr("imgdsk")+")";
+            if($(this).attr("imgdsk") != ""){$(this).css({"background-image":aImgMob1});}
+        });
+        $(".full_banner_carro_div_img_full").each(function(){
+            var aImgMob2 = "url("+$(this).attr("imgdsk")+")";
+            if($(this).attr("imgdsk") != ""){$(this).css({"background-image":aImgMob2});}
+        });
+    }
+
+    $(window).resize(function(){
+        //ajustaIpad(is_iPad);
+        $('html, body').css({'height':windowHeight});
+        if($(window).width() < 1590){
+            if($(window).width() > 600 && !isMobile.any()){
+                wCarro2 = ($(window).width() / 100)*10;
+            }else{
+                if($(window).width() > window.screen.height){
+                    if($(window).width() > 1024){
+                        wCarro2 = ($(window).width() / 100)*10;
+                    }else{
+                        wCarro2 = ($(window).width() / 100)*2;
+                    }
+                }else{
+                    wCarro2 = -($(window).width() / 100)*15;
+                }
+            }
+        }else{
+            wCarro2 = 0;
+        }
+
+        if($(window).width() < 800 || isMobile.any()){
+            $(".full_banner_carro_container").each(function(){
+                var aImgMob1 = "url("+$(this).attr("imgmob")+")";
+                if($(this).attr("imgmob") != ""){$(this).css({"background-image":aImgMob1});}
+            });
+            $(".full_banner_carro_div_img_full").each(function(){
+                var aImgMob2 = "url("+$(this).attr("imgmob")+")";
+                if($(this).attr("imgmob") != ""){$(this).css({"background-image":aImgMob2});}
+           });
+        }else{
+            $(".full_banner_carro_container").each(function(){
+                var aImgMob1 = "url("+$(this).attr("imgdsk")+")";
+                if($(this).attr("imgdsk") != ""){$(this).css({"background-image":aImgMob1});}
+            });
+            $(".full_banner_carro_div_img_full").each(function(){
+                var aImgMob2 = "url("+$(this).attr("imgdsk")+")";
+                if($(this).attr("imgdsk") != ""){$(this).css({"background-image":aImgMob2});}
+            });
+        }
+
+        $(".full_banner_carro_div_l").css({
+            marginLeft:wCarro2+"px",
+            opacity:1
+        });
+
+        $(".full_banner_carro_div_r").css({
+            marginLeft:-wCarro2+"px",
+            opacity:1
+        });
+        
+        var xImgchbl = $(".imgchbl").outerWidth();
+        if(xImgchbl > 0){
+            $(".blifr").css({
+                width:xImgchbl,
+                height:xImgchbl
+            });
+        }
+    });
+
+    var aCh = 0;
+    var scrollTop = 0;
+    $(window).scroll(function(){
+        var sticky = $("#full_menu");
+        var zscroll = $(window).scrollTop();
+        if (zscroll > stickyOffset){
+          sticky.addClass("headerfixo");
+          $("#full_menu_inner").css({
+              "background-position":"2vw center"
+          });
+          $("#menu_categorias").css({
+              "top":"75px"
+          });
+          $("#menu_segmentos").css({
+              "top":"75px"
+          });
+
+          $("#menu_hotsites").css({
+              "top":"75px"
+          });
+        }else{
+          sticky.removeClass("headerfixo");
+          $("#full_menu_inner").css({
+              "background-position":"-100px center"
+          });
+          $("#menu_categorias").css({
+              "top":"186px"
+          });
+          $("#menu_segmentos").css({
+              "top":"186px"
+          });
+          $("#menu_hotsites").css({
+              "top":"186px"
+          });
+        }
+
+        scrollTop = $(window).scrollTop() + (window.innerHeight/3);
+
+        $('.efeitoDiv').each(function(){
+            var elementoID = $(this).attr("id");
+            var elementoED = $("#"+elementoID);
+            var elementoTP = $("#"+elementoID).offset().top;
+            var offsetTop = ((elementoTP - scrollTop) - (window.innerHeight/2)) + 50;
+            var offsetTop = ((elementoTP) - (window.innerHeight/1.5)) + 50;
+            if($("#"+elementoID).css("opacity") == "0"){
+                if(scrollTop > offsetTop){
+                    $("#"+elementoID).css({
+                        "-moz-transform": "translate(0px, 0)",
+                        "-webkit-transform": "translate(0px, 0)",
+                        "-o-transform": "translate(0px, 0)",
+                        "transform": "translate(0px, 0)",
+                        "opacity":"1"
+                    });
+                }else{
+                //    el.css({
+                //        "margin-left":"-50px",
+                //        "opacity":"0"
+                //    });
+                }
+            }
+        });
+
+        if(typeof $('#full_home_contadores').offset() !== "undefined"){
+            var oTop = $('#full_home_contadores').offset().top - window.innerHeight;
+            if (aCh == 0 && $(window).scrollTop() > oTop) {
+                $('.valor_contador').each(function() {
+                    var $this = $(this), countTo = $this.attr('valor_final');
+                    $({countNum: $this.text()}).animate(
+                        {
+                            countNum: countTo
+                        },{
+                            duration: 7000,
+                            easing: 'swing',
+                            step: function() {
+                              $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function() {
+                            $this.text(this.countNum);
+                        }
+                    });
+                });
+                aCh = 1;
+            }
+        }
+    }); 
+
+    carro1 = $("#full_banner_carro");
+    carro2 = $("#carro_home2");   
+    carro3 = $("#pre_busca_carro");
+
+    $("#full_header_abre_menu").on("click",function(){
+        $("#full_menu").attr("class","full_menu_aberto");
+        $("#full_header_fecha_menu").css({display:"block"});
+        $("body").css({height:"100vh","overflow-y":"hidden"});
+        $(this).css({display:"none"});
+        Tawk_API.toggleVisibility();
+    });
+
+    $("#full_header_fecha_menu").on("click",function(){
+        $("#full_menu").attr("class","");
+        $("#full_header_abre_menu").css({display:"block"});
+        $("body").css({height:"auto","overflow-y":"auto"});
+        $(this).css({display:"none"});
+        Tawk_API.toggleVisibility();
+    });
+
+    $(".menu_categorias_cat").unbind("mouseover");
+    $(".menu_categorias_cat").on("mouseover",function(){
+        var classeMCC = $(this).attr("quem");
+
+        if($(this).attr("cor") != "" && typeof $(this).attr("cor") !== "undefined"){
+            $(".menu_categorias_cat").each(function(){
+                $(this).css({
+                    "background-color":"#ffffff",
+                    "background-position":"center top",
+                    "border":"rgba(238,238,238,1) solid 3px"
+                });
+            });
+
+            $(this).css({
+                "background-color":$(this).attr("cor"),
+                "background-position":"center -79px",
+                "border":$(this).attr("cor")+" solid 3px"
+            });
+        }
+
+        $(".menu_cat_sub").each(function(){
+            $(this).removeClass("menu_cat_sub_ativo");
+        });
+        $("#"+classeMCC).addClass("menu_cat_sub_ativo");
+
+        var mcoHeight = $("#menu_categorias_container").height();
+        $("#menu_categorias").css({
+            "height":mcoHeight,
+            "overflow":"none"
+        });
+    });
+
+    $(".menu_segmentos_seg").unbind("mouseover");
+    $(".menu_segmentos_seg").on("mouseover",function(){
+        var classeMCC = $(this).attr("quem");
+
+        if($(this).attr("cor") != "" && typeof $(this).attr("cor") !== "undefined"){
+            $(".menu_segmentos_seg").each(function(){
+                $(this).css({
+                    "background-color":"#ffffff",
+                    "background-position":"center top",
+                    "border":"rgba(238,238,238,1) solid 3px"
+                });
+            });
+
+            $(this).css({
+                "background-color":$(this).attr("cor"),
+                "background-position":"center -79px",
+                "border":$(this).attr("cor")+" solid 3px"
+            });
+        }
+
+        $(".menu_seg_sub").each(function(){
+            $(this).removeClass("menu_seg_sub_ativo");
+        });
+        $("#"+classeMCC).addClass("menu_seg_sub_ativo");
+
+        var mcoHeight = $("#menu_segmentos_container").height();
+        $("#menu_segmentos").css({
+            "height":mcoHeight,
+            "overflow":"none"
+        });
+    });
+    
+    $(".menu_hot_sub_link").unbind("mouseover");
+    $(".menu_hot_sub_link").on("mouseover",function(){
+        var corHCC = $(this).attr("cor");
+        var imgHCC = $(this).attr("imagem");
+        if(corHCC != "" && typeof corHCC !== "undefined"){
+            console.log(imgHCC);
+            $(".hotx_banner").css({
+                "background-color":corHCC,
+                "background-image":"url("+imgHCC+")",
+                "background-size":"cover",
+                "background-position":"center center"
+            });
+        }
+    });
+    
+    $("#full_header_area_logo_cl").unbind("click");
+    $("#full_header_area_logo_cl").on("click",function(e){
+        e.preventDefault();
+        if(fhalCL == 0){
+            $(this).toggleClass('full_header_area_logo_cl');
+            var tm_fhaCL = setTimeout(function(){
+                clearTimeout(tm_fhaCL);
+                fhalCL = 1;
+            },500);
+        }
+    });
+
+    $(".frm_ligamos").unbind("click");
+    $(".frm_ligamos").on("click",function(e){
+        e.stopPropagation();
+    });
+
+    $("#full_home_footer_contato").unbind("click");
+    $("#full_home_footer_contato").on("click",function(e){
+        e.preventDefault();
+        if(fhalXL == 0){
+            $(this).toggleClass('full_home_footer_contato_op');
+            $(".full_home_footer_end_email").toggle();
+            $(".full_home_footer_end_whatsapp").toggle();
+            $(".full_home_footer_end_revendedor").toggle();
+            var tm_fhaXL = setTimeout(function(){
+                clearTimeout(tm_fhaXL);
+                fhalXL = 1;
+            },500);
+        }
+    });
+
+    $(".footer_contato_input, .footer_contato_tarea").unbind("click");
+    $(".footer_contato_input, .footer_contato_tarea").on("click",function(e){
+        e.stopPropagation();
+    });
+
+    $(".busca_filtros_lim_pag").on("click",function(){
+        $("#hid_lim_pag").val($(this).attr("quanto"));
+        if(typeof $("#frm_busca_full").attr("action") !== "undefined"){
+            if($("#busca_filtros_input_palavra").val() != ""){
+                $("#frm_busca_full").submit();
+            }else{
+                return false;
+            }
+        }else if(typeof $("#frm_prod_full").attr("action") !== "undefined"){
+            $("#frm_prod_full").submit();
+        }else if(typeof $("#frm_cat_full").attr("action") !== "undefined"){
+            $("#frm_cat_full").submit();
+        }else if(typeof $("#frm_seg_full").attr("action") !== "undefined"){
+            $("#frm_seg_full").submit();
+        }
+    });
+
+    $(".busca_filtros_cla_pag").on("click",function(){
+        $("#hid_cla_pag").val($(this).attr("quanto"));
+        if(typeof $("#frm_busca_full").attr("action") !== "undefined"){
+            if($("#busca_filtros_input_palavra").val() != ""){
+                $("#frm_busca_full").submit();
+            }else{
+                return false;
+            }
+        }else if(typeof $("#frm_prod_full").attr("action") !== "undefined"){
+            $("#frm_prod_full").submit();
+        }else if(typeof $("#frm_cat_full").attr("action") !== "undefined"){
+            $("#frm_cat_full").submit();
+        }else if(typeof $("#frm_seg_full").attr("action") !== "undefined"){
+            $("#frm_seg_full").submit();
+        }
+    });
+
+    $("#busca_filtros_ico").on("click",function(){
+        var hFiltro = $("#busca_filtros").css("height");
+        var bFiltro = $("body").css("height");
+        hFiltro = parseInt(hFiltro.replace("px",""));
+        bFiltro = parseInt(bFiltro.replace("px",""));
+        console.log("h -> " + hFiltro + " | b -> " + bFiltro);
+        if(hFiltro < (bFiltro/2)){
+            $("#busca_filtros").css({"height":"86vh","overflow":"hidden","overflow-y":"auto","background":"#efefef"});
+            $("body").css({height:"100vh",overflow:"hidden"});
+            $(this).css({"background-position":"center -8vh"});
+            $("#busca_filtros_label_01").show();
+        }else{
+            $("#busca_filtros").css({"height":"10vh","overflow":"hidden","background":"#ffe810"});
+            $("body").css({height:"auto","overflow":"auto"});
+            $(this).css({"background-position":"center top"});
+            $("#busca_filtros_label_01").hide();
+        }
+    });
+    
+    $("#frm_busca_mob").on("submit",function(){
+        if($("#frm_busca_input_mob").val() != ""){
+            var conteudo_busca = pasta_home + "busca/" + $("#frm_busca_input_mob").val() + "/" + $("#pagina").val();
+            for(var i = 0; i < 99; i++){
+                conteudo_busca = conteudo_busca.replace(" ","_");
+                conteudo_busca = conteudo_busca.replace("-","_");
+                conteudo_busca = conteudo_busca.replace("+","_");
+                conteudo_busca = conteudo_busca.replace("=","_");
+                conteudo_busca = conteudo_busca.replace(",","_");
+                conteudo_busca = conteudo_busca.replace(".","_");
+                conteudo_busca = conteudo_busca.replace(";","_");
+                conteudo_busca = conteudo_busca.replace(":","_");
+                conteudo_busca = conteudo_busca.replace("(","_");
+                conteudo_busca = conteudo_busca.replace(")","_");
+            }
+            conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            $("#frm_busca_mob").attr("action",conteudo_busca);
+        }else{
+            return false;
+        }
+    });
+
+    $("#frm_busca_main").on("submit",function(){
+        if($("#input_busca_main").val() != ""){
+            var conteudo_busca = pasta_home + "busca/" + $("#input_busca_main").val() + "/" + $("#pagina").val();
+            for(var i = 0; i < 99; i++){
+                conteudo_busca = conteudo_busca.replace(" ","_");
+                conteudo_busca = conteudo_busca.replace("-","_");
+                conteudo_busca = conteudo_busca.replace("+","_");
+                conteudo_busca = conteudo_busca.replace("=","_");
+                conteudo_busca = conteudo_busca.replace(",","_");
+                conteudo_busca = conteudo_busca.replace(".","_");
+                conteudo_busca = conteudo_busca.replace(";","_");
+                conteudo_busca = conteudo_busca.replace(":","_");
+                conteudo_busca = conteudo_busca.replace("(","_");
+                conteudo_busca = conteudo_busca.replace(")","_");
+            }
+            conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            $("#frm_busca_main").attr("action",conteudo_busca);
+        }else{
+            return false;
+        }
+    });
+
+    $("#frm_busca").on("submit",function(){
+        if($("#frm_busca_input").val() != ""){
+            var conteudo_busca = pasta_home + "busca/" + $("#frm_busca_input").val() + "/" + $("#pagina").val();
+            for(var i = 0; i < 99; i++){
+                conteudo_busca = conteudo_busca.replace(" ","_");
+                conteudo_busca = conteudo_busca.replace("-","_");
+                conteudo_busca = conteudo_busca.replace("+","_");
+                conteudo_busca = conteudo_busca.replace("=","_");
+                conteudo_busca = conteudo_busca.replace(",","_");
+                conteudo_busca = conteudo_busca.replace(".","_");
+                conteudo_busca = conteudo_busca.replace(";","_");
+                conteudo_busca = conteudo_busca.replace(":","_");
+                conteudo_busca = conteudo_busca.replace("(","_");
+                conteudo_busca = conteudo_busca.replace(")","_");
+            }
+            conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            $("#frm_busca").attr("action",conteudo_busca);
+        }else{
+            return false;
+        }
+    });
+
+    $("#frm_busca_full").on("submit",function(){
+        if($("#busca_filtros_input_palavra").val() != ""){
+            var conteudo_busca = pasta_home + "busca/" + $("#busca_filtros_input_palavra").val() + "/" + $("#pagina").val();
+            for(var i = 0; i < 99; i++){
+                conteudo_busca = conteudo_busca.replace(" ","_");
+                conteudo_busca = conteudo_busca.replace("-","_");
+                conteudo_busca = conteudo_busca.replace("+","_");
+                conteudo_busca = conteudo_busca.replace("=","_");
+                conteudo_busca = conteudo_busca.replace(",","_");
+                conteudo_busca = conteudo_busca.replace(".","_");
+                conteudo_busca = conteudo_busca.replace(";","_");
+                conteudo_busca = conteudo_busca.replace(":","_");
+                conteudo_busca = conteudo_busca.replace("(","_");
+                conteudo_busca = conteudo_busca.replace(")","_");
+            }
+            conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            $("#frm_busca_full").attr("action",conteudo_busca);
+        }else{
+            return false;
+        }
+    });
+
+    $("#frm_prod_full").on("submit",function(){
+        var conteudo_busca = pasta_home + "produtos/" + $("#pagina").val();
+        for(var i = 0; i < 99; i++){
+            conteudo_busca = conteudo_busca.replace(" ","_");
+            conteudo_busca = conteudo_busca.replace("-","_");
+            conteudo_busca = conteudo_busca.replace("+","_");
+            conteudo_busca = conteudo_busca.replace("=","_");
+            conteudo_busca = conteudo_busca.replace(",","_");
+            conteudo_busca = conteudo_busca.replace(".","_");
+            conteudo_busca = conteudo_busca.replace(";","_");
+            conteudo_busca = conteudo_busca.replace(":","_");
+            conteudo_busca = conteudo_busca.replace("(","_");
+            conteudo_busca = conteudo_busca.replace(")","_");
+        }
+        conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        $("#frm_prod_full").attr("action",conteudo_busca);
+    });
+    
+    $("#frm_cat_full").on("submit",function(){
+        //var conteudo_busca = pasta_home + "categoria/" + $("#pagina").val();
+        var conteudo_busca = $(this).attr("action") + "/" + $("#pagina").val();
+        //alert(conteudo_busca);
+        for(var i = 0; i < 99; i++){
+            conteudo_busca = conteudo_busca.replace(" ","_");
+            conteudo_busca = conteudo_busca.replace("-","_");
+            conteudo_busca = conteudo_busca.replace("+","_");
+            conteudo_busca = conteudo_busca.replace("=","_");
+            conteudo_busca = conteudo_busca.replace(",","_");
+            conteudo_busca = conteudo_busca.replace(".","_");
+            conteudo_busca = conteudo_busca.replace(";","_");
+            conteudo_busca = conteudo_busca.replace(":","_");
+            conteudo_busca = conteudo_busca.replace("(","_");
+            conteudo_busca = conteudo_busca.replace(")","_");
+        }
+        conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        $("#frm_cat_full").attr("action",conteudo_busca);
+    });
+
+    $("#frm_seg_full").on("submit",function(){
+        var conteudo_busca = $(this).attr("action") + "/" + $("#pagina").val();
+        for(var i = 0; i < 99; i++){
+            conteudo_busca = conteudo_busca.replace(" ","_");
+            conteudo_busca = conteudo_busca.replace("-","_");
+            conteudo_busca = conteudo_busca.replace("+","_");
+            conteudo_busca = conteudo_busca.replace("=","_");
+            conteudo_busca = conteudo_busca.replace(",","_");
+            conteudo_busca = conteudo_busca.replace(".","_");
+            conteudo_busca = conteudo_busca.replace(";","_");
+            conteudo_busca = conteudo_busca.replace(":","_");
+            conteudo_busca = conteudo_busca.replace("(","_");
+            conteudo_busca = conteudo_busca.replace(")","_");
+        }
+        conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        $("#frm_seg_full").attr("action",conteudo_busca);
+    });
+
+    $(".busca_paginacao_primeira, .busca_paginacao_anterior, .busca_paginacao_pagina, .busca_paginacao_proxima, .busca_paginacao_ultima").on("click",function(){
+        if(typeof $("#frm_busca_full").attr("action") !== "undefined"){
+            if($("#busca_filtros_input_palavra").val() != ""){
+                $("#pagina").val($(this).attr("quanto"));
+                var conteudo_busca = $(this).attr("onde");
+                for(var i = 0; i < 99; i++){
+                    conteudo_busca = conteudo_busca.replace(" ","_");
+                    conteudo_busca = conteudo_busca.replace("-","_");
+                    conteudo_busca = conteudo_busca.replace("+","_");
+                    conteudo_busca = conteudo_busca.replace("=","_");
+                    conteudo_busca = conteudo_busca.replace(",","_");
+                    conteudo_busca = conteudo_busca.replace(".","_");
+                    conteudo_busca = conteudo_busca.replace(";","_");
+                    conteudo_busca = conteudo_busca.replace(":","_");
+                    conteudo_busca = conteudo_busca.replace("(","_");
+                    conteudo_busca = conteudo_busca.replace(")","_");
+                }
+                conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                $("#frm_busca_full").attr("action",conteudo_busca);
+                $("#frm_busca_full").submit();
+            }else{
+                return false;
+            }
+        }else if(typeof $("#frm_prod_full").attr("action") !== "undefined"){
+            $("#pagina").val($(this).attr("quanto"));
+            var conteudo_busca = $(this).attr("onde");
+            $("#frm_prod_full").attr("action",conteudo_busca);
+            $("#frm_prod_full").submit();
+        }else if(typeof $("#frm_cat_full").attr("action") !== "undefined"){
+            $("#pagina").val($(this).attr("quanto"));
+            var conteudo_busca = $(this).attr("onde");
+            $("#frm_cat_full").attr("action",conteudo_busca);
+            $("#frm_cat_full").submit();
+        }else if(typeof $("#frm_seg_full").attr("action") !== "undefined"){
+            $("#pagina").val($(this).attr("quanto"));
+            var conteudo_busca = $(this).attr("onde");
+            $("#frm_seg_full").attr("action",conteudo_busca);
+            $("#frm_seg_full").submit();
+        }
+    });
+
+    $("#busca_filtros_input_tipo1, #busca_filtros_input_tipo2, #busca_filtros_input_tipo3, .busca_filtro_check_generico").on("change",function(){
+        /*
+        if(typeof $("#frm_busca_full").attr("action") !== "undefined"){
+            if($("#busca_filtros_input_palavra").val() != ""){
+                $("#frm_busca_full").submit();
+            }else{
+                return false;
+            }
+        }else if(typeof $("#frm_prod_full").attr("action") !== "undefined"){
+            $("#frm_prod_full").submit();
+        }else if(typeof $("#frm_cat_full").attr("action") !== "undefined"){
+            $("#frm_cat_full").submit();
+        }else if(typeof $("#frm_seg_full").attr("action") !== "undefined"){
+            $("#frm_seg_full").submit();
+        }
+        */
+    });
+    
+    $(".btn_filtrar_filtros_f").on("click",function(){
+        if(typeof $("#frm_busca_full").attr("action") !== "undefined"){
+            if($("#busca_filtros_input_palavra").val() != ""){
+                $("#frm_busca_full").submit();
+            }else{
+                return false;
+            }
+        }else if(typeof $("#frm_prod_full").attr("action") !== "undefined"){
+            $("#frm_prod_full").submit();
+        }else if(typeof $("#frm_cat_full").attr("action") !== "undefined"){
+            $("#frm_cat_full").submit();
+        }else if(typeof $("#frm_seg_full").attr("action") !== "undefined"){
+            $("#frm_seg_full").submit();
+        }
+    });
+
+    $(".busca_filtros_label_limite").on("click",function(){
+        var maximoLimiteBusca = $(this).parent().find(".busca_filtros_limite").attr("quantos");
+        var tmTransition = 0;
+        if(maximoLimiteBusca > 15){
+            tmTransition = parseInt(maximoLimiteBusca/2.5);
+        }else{
+            tmTransition = maximoLimiteBusca;
+        }
+        if($(this).html() == "Todas"){
+            $(this).html("Fechar");
+            $(this).parent().find(".busca_filtros_limite").css({
+                height:(maximoLimiteBusca*47)+"px",
+                "-webkit-transition":"height ease-out "+(maximoLimiteBusca*33)+"ms",
+                "-moz-transition":"height ease-out "+(maximoLimiteBusca*33)+"ms",
+                "-o-transition":"height ease-out "+(maximoLimiteBusca*33)+"ms",
+                "transition":"height ease-out "+(maximoLimiteBusca*33)+"ms"
+            });
+            $(this).css({
+                "background-position-y":"-45px"
+            });
+        }else{
+            if(maximoLimiteBusca > 4){
+              $(this).parent().find(".busca_filtros_limite").css({
+                  height:"0",
+                  "-webkit-transition":"height ease-out "+(tmTransition*33)+"ms",
+                  "-moz-transition":"height ease-out "+(tmTransition*33)+"ms",
+                  "-o-transition":"height ease-out "+(tmTransition*33)+"ms",
+                  "transition":"height ease-out "+(tmTransition*33)+"ms"
+              });
+            }else{
+              $(this).parent().find(".busca_filtros_limite").css({
+                  height:(maximoLimiteBusca*47)+"px",
+                  "-webkit-transition":"height ease-out "+(maximoLimiteBusca*33)+"ms",
+                  "-moz-transition":"height ease-out "+(maximoLimiteBusca*33)+"ms",
+                  "-o-transition":"height ease-out "+(maximoLimiteBusca*33)+"ms",
+                  "transition":"height ease-out "+(maximoLimiteBusca*33)+"ms"
+              });
+            }
+            $(this).css({
+                "background-position-y":"0px"
+            });
+            $(this).html("Todas");
+        }
+    });
+    
+    $(".prod_geral_aba").unbind("click");
+    $(".prod_geral_aba").on("click", function(){
+        $(".prod_geral_aba").each(function(){
+            $(this).removeClass("prod_geral_aba_ativa");
+        });
+        $(this).addClass("prod_geral_aba_ativa");
+
+        $(".produto_final_inferior_resumo_titulo").each(function(){
+            $(this).removeClass("pfirt_ativo");
+        });
+        $("#" + $(this).attr("onde")).addClass("pfirt_ativo");
+    });
+
+    $(".resultados_diagramacao1").unbind("click");
+    $(".resultados_diagramacao1").on("click", function(){
+        $("#diagramacao").val("0");
+        if(typeof $("#frm_busca_full").attr("action") !== "undefined"){
+            $("#frm_busca_full").submit();
+        }else if(typeof $("#frm_prod_full").attr("action") !== "undefined"){
+            $("#frm_prod_full").submit();
+        }else if(typeof $("#frm_cat_full").attr("action") !== "undefined"){
+            $("#frm_cat_full").submit();
+        }else if(typeof $("#frm_seg_full").attr("action") !== "undefined"){
+            $("#frm_seg_full").submit();
+        }
+    });
+
+    $(".resultados_diagramacao2").unbind("click");
+    $(".resultados_diagramacao2").on("click",function(){
+        $("#diagramacao").val("1");
+        if(typeof $("#frm_busca_full").attr("action") !== "undefined"){
+            $("#frm_busca_full").submit();
+        }else if(typeof $("#frm_prod_full").attr("action") !== "undefined"){
+            $("#frm_prod_full").submit();
+        }else if(typeof $("#frm_cat_full").attr("action") !== "undefined"){
+            $("#frm_cat_full").submit();
+        }else if(typeof $("#frm_seg_full").attr("action") !== "undefined"){
+            $("#frm_seg_full").submit();
+        }
+    });
+
+    $(".produto_final_lateral_resumo_titulo").on("click",function(){
+        $(this).toggleClass('produto_final_lateral_resumo_titulo_aberto');
+        $(this).find("span").toggleClass('pflrtas');
+        $(this).find(".produto_final_lateral_resumo_texto").toggleClass('produto_final_lateral_resumo_texto_aberto');
+    });
+
+    $(".full_home_produtos_categoria").unbind("mouseenter");
+    $(".full_home_produtos_categoria").on("mouseenter",function(){
+        var pCOR = $(this).attr("cor");
+        if(typeof pCOR !== "undefined"){
+            if(pCOR != ""){
+                //$(this).find(".full_home_produtos_categoria_container").css({
+                $(this).css({
+                    "background-color":pCOR,
+                    "background-position":"center bottom"
+                });
+            }
+        }
+    });
+
+    $(".full_home_produtos_categoria").unbind("mouseleave");
+    $(".full_home_produtos_categoria").on("mouseleave",function(){
+        //$(this).find(".full_home_produtos_categoria_container").css({
+        $(this).css({
+            "background-color":"#ffffff",
+            "background-position":"center top"
+        });
+    });
+
+    $(".blog_filtros_lim_pag").on("click",function(){
+        $("#hid_lim_pag").val($(this).attr("quanto"));
+        $("#frm_blog_full").submit();
+    });
+
+    $(".blog_filtros_cla_pag").on("click",function(){
+        $("#hid_cla_pag").val($(this).attr("quanto"));
+        $("#frm_blog_full").submit();
+    });
+    
+    $("#blog_filtros_ico").on("click",function(){
+        var hFiltro = $("#blog_filtros").css("height");
+        var bFiltro = $("body").css("height");
+        hFiltro = parseInt(hFiltro.replace("px",""));
+        bFiltro = parseInt(bFiltro.replace("px",""));
+        console.log("h -> " + hFiltro + " | b -> " + bFiltro);
+        if(hFiltro < (bFiltro/2)){
+            $("#blog_filtros").css({"height":"86vh","overflow":"hidden","overflow-y":"auto","background":"#efefef"});
+            $("body").css({height:"100vh",overflow:"hidden"});
+            $(this).css({"background-position":"center -8vh"});
+            $("#blog_filtros_label_01").show();
+        }else{
+            $("#blog_filtros").css({"height":"10vh","overflow":"hidden","background":"#f3c301"});
+            $("body").css({height:"auto","overflow":"auto"});
+            $(this).css({"background-position":"center top"});
+            $("#blog_filtros_label_01").hide();
+        }
+    });
+
+    $("#frm_blog_mob").on("submit",function(){
+        if($("#frm_blog_input_mob").val() != ""){
+            var conteudo_busca = pasta_home + "busca/" + $("#frm_blog_input_mob").val() + "/" + $("#pagina").val();
+            for(var i = 0; i < 99; i++){
+                conteudo_busca = conteudo_busca.replace(" ","_");
+                conteudo_busca = conteudo_busca.replace("-","_");
+                conteudo_busca = conteudo_busca.replace("+","_");
+                conteudo_busca = conteudo_busca.replace("=","_");
+                conteudo_busca = conteudo_busca.replace(",","_");
+                conteudo_busca = conteudo_busca.replace(".","_");
+                conteudo_busca = conteudo_busca.replace(";","_");
+                conteudo_busca = conteudo_busca.replace(":","_");
+                conteudo_busca = conteudo_busca.replace("(","_");
+                conteudo_busca = conteudo_busca.replace(")","_");
+            }
+            conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            $("#frm_blog_mob").attr("action",conteudo_busca);
+        }else{
+            return false;
+        }
+    });
+
+    $("#frm_blog").on("submit",function(){
+        var conteudo_busca = pasta_home + "blog/" + $("#frm_blog_input").val() + "/" + $("#pagina").val();
+        for(var i = 0; i < 99; i++){
+            conteudo_busca = conteudo_busca.replace(" ","_");
+            conteudo_busca = conteudo_busca.replace("-","_");
+            conteudo_busca = conteudo_busca.replace("+","_");
+            conteudo_busca = conteudo_busca.replace("=","_");
+            conteudo_busca = conteudo_busca.replace(",","_");
+            conteudo_busca = conteudo_busca.replace(".","_");
+            conteudo_busca = conteudo_busca.replace(";","_");
+            conteudo_busca = conteudo_busca.replace(":","_");
+            conteudo_busca = conteudo_busca.replace("(","_");
+            conteudo_busca = conteudo_busca.replace(")","_");
+        }
+        conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        $("#frm_blog").attr("action",conteudo_busca);
+    });
+
+    $("#frm_blog_full").on("submit",function(){
+        var conteudo_busca = pasta_home + "blog/" + $("#blog_filtros_input_palavra").val() + "/" + $("#pagina").val();
+        for(var i = 0; i < 99; i++){
+            conteudo_busca = conteudo_busca.replace(" ","_");
+            conteudo_busca = conteudo_busca.replace("-","_");
+            conteudo_busca = conteudo_busca.replace("+","_");
+            conteudo_busca = conteudo_busca.replace("=","_");
+            conteudo_busca = conteudo_busca.replace(",","_");
+            conteudo_busca = conteudo_busca.replace(".","_");
+            conteudo_busca = conteudo_busca.replace(";","_");
+            conteudo_busca = conteudo_busca.replace(":","_");
+            conteudo_busca = conteudo_busca.replace("(","_");
+            conteudo_busca = conteudo_busca.replace(")","_");
+        }
+        conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        $("#frm_blog_full").attr("action",conteudo_busca);
+    });
+
+    $(".blog_paginacao_primeira, .blog_paginacao_anterior, .blog_paginacao_pagina, .blog_paginacao_proxima, .blog_paginacao_ultima").on("click",function(){
+        $("#pagina").val($(this).attr("quanto"));
+        var conteudo_busca = $(this).attr("onde");
+        for(var i = 0; i < 99; i++){
+            conteudo_busca = conteudo_busca.replace(" ","_");
+            conteudo_busca = conteudo_busca.replace("-","_");
+            conteudo_busca = conteudo_busca.replace("+","_");
+            conteudo_busca = conteudo_busca.replace("=","_");
+            conteudo_busca = conteudo_busca.replace(",","_");
+            conteudo_busca = conteudo_busca.replace(".","_");
+            conteudo_busca = conteudo_busca.replace(";","_");
+            conteudo_busca = conteudo_busca.replace(":","_");
+            conteudo_busca = conteudo_busca.replace("(","_");
+            conteudo_busca = conteudo_busca.replace(")","_");
+        }
+        conteudo_busca = conteudo_busca.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        $("#frm_blog_full").attr("action",conteudo_busca);
+        $("#frm_blog_full").submit();
+    });
+
+    $("#blog_filtros_input_tipo1, #blog_filtros_input_tipo2, #blog_filtros_input_tipo3, .blog_filtro_check_generico").on("change",function(){
+        $("#frm_blog_full").submit();
+    });
+
+    $(".blog_filtros_label_limite").on("click",function(){
+        var maximoLimiteBusca = $(this).parent().find(".blog_filtros_limite").attr("quantos");
+        if($(this).html() == "Todas"){
+            $(this).html("Fechar");
+            $(this).parent().find(".blog_filtros_limite").css({
+                height:(maximoLimiteBusca*47)+"px"
+            });
+        }else{
+            if(maximoLimiteBusca > 5){
+              $(this).parent().find(".blog_filtros_limite").css({
+                  height:"235px"
+              });
+            }else{
+              $(this).parent().find(".blog_filtros_limite").css({
+                  height:(maximoLimiteBusca*47)+"px"
+              });
+            }
+            $(this).html("Todas");
+        }
+    });
+
+    $("#frm_newsletter_button").on("click",function(){
+        enviaNewsletter();
+    });
+
+    $("#frm_contato_enviar").on("click",function(){
+        enviaContato2();
+    });
+    
+    $("#footer_contato_btn").unbind("click");
+    $("#footer_contato_btn").on("click",function(e){
+        enviaContato2();
+    });
+    
+    $("#frm_ligamos_btn").unbind("click");
+    $("#frm_ligamos_btn").on("click",function(e){
+        enviaLigamos();
+    });
+    
+    produtosHome();
+    
+    wCarro2 = $(window).width();
+    if($(window).width() < 1590){
+        if($(window).width() > 600 && !isMobile){
+            wCarro2 = ($(window).width() / 100)*10;
+        }else{
+            if($(window).width() > window.screen.height){
+                if($(window).width() > 1024){
+                    wCarro2 = ($(window).width() / 100)*10;
+                }else{
+                    wCarro2 = ($(window).width() / 100)*2;
+                }
+            }else{
+                wCarro2 = -($(window).width() / 100)*15;
+            }
+        }
+    }else{
+        wCarro2 = 0;
+    }
+
+    if(typeof $("#startube").attr("id") !== "undefined") {
+        $('#startube ul.thumbs').startube({
+          titles: false,
+          thumbs: 12,
+          pages:  10,
+          all:    true,
+          cat:    0,
+          prefix: '&nbsp;',
+          sep:      ' - ',
+          navabove: false,
+          navbelow: true
+        });
+    }
+
+
+
+
+    if(typeof $("#full_banner_carro").attr("id") !== "undefined") {
+        carro1.owlCarousel({
+            loop:true,
+            margin:0,
+            nav:true,
+            navText : ["",""],
+            items:1,
+            singleItem:true,
+            autoplay:true,
+            autoplayTimeout:15000,
+            autoplaySpeed:500,
+            autoplayHoverPause:true,
+            animateOut: ''
+        });
+
+        carro1.on(
+            'translate.owl.carousel',
+            function(e){
+                $(".full_banner_carro_div_l").css({
+                    marginLeft:"-4vw",
+                    opacity:0
+                });
+
+                $(".full_banner_carro_div_r").css({
+                    marginLeft:"4vw",
+                    opacity:0
+                });
+            }
+        );
+
+        carro1.on(
+            'translated.owl.carousel',
+            function(e){
+                $(".full_banner_carro_div_l").css({
+                    marginLeft:wCarro2+"px",
+                    opacity:1
+                });
+
+                $(".full_banner_carro_div_r").css({
+                    marginLeft:-wCarro2+"px",
+                    opacity:1
+                });
+            }
+        );
+
+        var tmXC1 = setTimeout(function(){
+            $('.cr_prev').click(function() {
+                carro1.trigger('prev.owl.carousel',[500]);
+            });
+            $('.cr_next').click(function() {
+                carro1.trigger('next.owl.carousel',[500]);
+            });
+        },2000);
+    }
+
+    if(typeof $("#carro_home2").attr("id") !== "undefined") {
+        carro2.owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                300:{
+                    items:2
+                },
+                590:{
+                    items:3
+                },
+                1000:{
+                    items:4
+                }
+            }
+        });
+    }
+    
+    
+    if(typeof $("#pre_busca_carro").attr("id") !== "undefined") {
+        carro3.owlCarousel({
+            loop:true,
+            margin:0,
+            nav:true,
+            navText : ["",""],
+            items:1,
+            singleItem:true,
+            autoplay:true,
+            autoplayTimeout:15000,
+            autoplaySpeed:500,
+            autoplayHoverPause:true,
+            animateOut: ''
+        });
+
+        var tmXC3 = setTimeout(function(){
+            $('.cr_prev').click(function() {
+                carro3.trigger('prev.owl.carousel',[500]);
+            });
+            $('.cr_next').click(function() {
+                carro3.trigger('next.owl.carousel',[500]);
+            });
+        },2000);
+    }
+
+    $(".full_banner_carro_div_l").css({
+        marginLeft:wCarro2+"px",
+        opacity:1
+    });
+
+    $(".full_banner_carro_div_r").css({
+        marginLeft:-wCarro2+"px",
+        opacity:1
+    });
+
+    //alert($(window).width());      
+
+    $("#sel_home_produtos_categoria").on("change",function(){produtosHome();});
+    $("#sel_home_produtos_segmento").on("change",function(){produtosHome();});
+    $("#sel_home_produtos_patologia").on("change",function(){produtosHome();});
+    $("#sel_home_produtos_corpo").on("change",function(){produtosHome();});
+    $("#sel_home_produtos_palavra").on("keyup",function(){produtosHome();});
+
+    var $mask_telefone = $(".mask_telefone");
+    $mask_telefone.unbind("keyup");
+    $mask_telefone.on("keyup",function(){
+        var texto = $(this).val();
+        if(texto.length == 1){
+            texto = "(" + texto;
+        }else if(texto.length == 3){
+            texto+= ") ";
+        }else if(texto.length == 9){
+            texto+= "-";
+        }else if(texto.length == 14){
+            texto = texto.replace("-","");
+            var texto_limpo = "";
+            for(var i = 0; i < texto.length; i++){
+                if(i == 9){
+                    texto_limpo+= "-";
+                }
+                texto_limpo+= texto.charAt(i);
+            }
+            texto = texto_limpo;
+        }else if(texto.length == 15){
+            texto = texto.replace("-","");
+            var texto_limpo = "";
+            for(var i = 0; i < texto.length; i++){
+                if(i == 10){
+                    texto_limpo+= "-";
+                }
+                texto_limpo+= texto.charAt(i);
+            }
+            texto = texto_limpo;
+        }
+
+        for(var i = 0; i < 10; i++){
+            texto = texto.replace(".","-");
+            texto = texto.replace("--","-");
+            texto = texto.replace("((","(");
+            texto = texto.replace("))",")");
+            texto = texto.replace("  "," ");
+        }
+
+        $(this).val(texto);
+    });
+
+    var $mask_cep = $(".mask_cep");
+    $mask_cep.unbind("keyup");
+    $mask_cep.on("keyup",function(){
+        var texto = $(this).val();
+        if(texto.length == 5){
+            texto+= "-";
+        }else if(texto.length == 9){
+            var textoXCEP = texto;
+            for(var i = 0; i < 19; i++){
+                textoXCEP = textoXCEP.replace("-","");
+            }
+
+            $.get("https://republicavirtual.com.br/web_cep.php?cep="+ textoXCEP +"&formato=json", function(res) {
+                if(res.resultado == 1) {
+                    var cepUF = res.uf;
+                    var cepCidade = res.cidade;
+                    var cepBairro = res.bairro;
+                    var cepTipo = res.tipo_logradouro;
+                    var cepEndereco = res.logradouro;
+                    console.log(cepUF + ' | ' + cepCidade + ' | ' + cepBairro + ' | ' + cepTipo + ' ' + cepEndereco);
+                    $('.cep_uf').val(cepUF);
+                    $('.cep_endereco').val(cepTipo + ' ' + cepEndereco);
+                    $('.cep_bairro').val(cepBairro);
+                    $('.cep_cidade').val(cepCidade);
+                }else{
+                    console.log('CEP Não encontrado.');
+                }
+            },"json");
+
+        }
+
+        for(var i = 0; i < 10; i++){
+            texto = texto.replace(".","-");
+            texto = texto.replace("--","-");
+            texto = texto.replace("((","(");
+            texto = texto.replace("))",")");
+            texto = texto.replace(" ","");
+        }
+
+        $(this).val(texto);
+    });
+});
+
+function chamaCat(quem){
+    //alert(quem);
+    $("#frm_cat_inputX").val(quem);
+    $("#frm_categoria").submit();
+}
+
+function chamaSeg(quem){
+    //alert(quem);
+    $("#frm_seg_inputX").val(quem);
+    $("#frm_segmento").submit();
+}
+
+function produtosHome(){
+    /*
+    var valCat = $("#sel_home_produtos_categoria").val();
+    var valSeg = $("#sel_home_produtos_segmento").val();
+    var valPat = $("#sel_home_produtos_patologia").val();
+    var valCor = $("#sel_home_produtos_corpo").val();
+    var valPal = $("#sel_home_produtos_palavra").val();
+    $.support.cors = true;
+    $.post(pasta_home + "ajax_home_produtos.php?method=lista&returnformat=json", {pa_cat:valCat, pa_pat:valPat, pa_cor:valCor, pa_pal:valPal, pa_seg:valSeg}, function(res) {
+        if(res.success == 1) {
+            var hpQuantos = parseInt(res.hp_tot);
+            var hpStr = "";
+            if(hpQuantos > 0){
+                for(var i = 0; i < hpQuantos; i++){
+                    if(res["tp"+i] == "p"){
+                        abreDiv = '<a class="full_home_produtos_categoria" href="'+res["lk"+i]+'" cor="'+res["bg"+i]+'">';
+                        abreDiv+=     '<div class="full_home_produtos_categoria_container full_home_produtos_categoria_container_p" style="background-image:url('+res["im"+i]+')"></div>';
+                        classeTextoDiv = ' full_home_produtos_categoria_texto_ct_p';
+                        abreCor = ' style="background-color:'+res["bg"+i]+'"';
+                        fechaDiv = '</a>';
+                    }else{
+                        abreDiv = '<div class="full_home_produtos_categoria" onde="'+res["lk"+i]+'" cor="'+res["bg"+i]+'">';
+                        abreDiv+=     '<div class="full_home_produtos_categoria_container" style="background-image:url('+res["im"+i]+')"></div>';
+                        classeTextoDiv = '';
+                        abreCor = '';
+                        fechaDiv = '</div>';
+                    }
+                    hpStr+= abreDiv;
+                    hpStr+=     '<div class="full_home_produtos_categoria_texto">';
+                    hpStr+=         '<div class="full_home_produtos_categoria_texto_ct'+classeTextoDiv+'"'+abreCor+'>';
+                    hpStr+=             '<span>'+res["tx"+i]+'</span>';
+                    hpStr+=         '</div>';
+                    hpStr+=     '</div>';
+                    hpStr+= fechaDiv;
+                }
+                $("#full_home_produtos_categorias").html(hpStr);
+                var tmPh = setTimeout(function(){
+                    $(".full_home_produtos_categoria").unbind("mouseenter");
+                    $(".full_home_produtos_categoria").on("mouseenter",function(){
+                        var pCOR = $(this).attr("cor");
+                        if(typeof pCOR !== "undefined"){
+                            if(pCOR != ""){
+                                $(this).find(".full_home_produtos_categoria_container").css({
+                                    "background-color":pCOR,
+                                    "background-position":"center bottom"
+                                });
+                            }
+                        }
+                    });
+
+                    $(".full_home_produtos_categoria").unbind("mouseleave");
+                    $(".full_home_produtos_categoria").on("mouseleave",function(){
+                        $(this).find(".full_home_produtos_categoria_container").css({
+                            "background-color":"#ffffff",
+                            "background-position":"center top"
+                        });
+                    });
+
+                    $(".full_home_produtos_categoria").unbind("click");
+                    $(".full_home_produtos_categoria").on("click",function(){
+                        var pHID = $(this).attr("onde");
+                        if(typeof pHID !== "undefined"){
+                            if(pHID != ""){
+                                abreProdutosHome(pHID);
+                            }
+                        }
+                    });
+                },500);
+            }else{
+                $("#full_home_produtos_categorias").html("<div class='hp_nenhum'>Nenhum resultado encontrado</div>");
+            }
+        }else{
+            $("#full_home_produtos_categorias").html("<div class='hp_nenhum'>Nenhum resultado encontrado</div>");
+        }
+    },"json");
+    */
+}
+
+function abreProdutosHome(onde){
+    console.log(onde);
+    $.support.cors = true;
+    $.post(pasta_home + "ajax_home_produtos_onde.php?method=lista&returnformat=json", {pa_onde:onde}, function(res) {
+        if(res.success == 1) {
+            var hpQuantos = parseInt(res.hp_tot);
+            var hpStr = "";
+            if(hpQuantos > 0){
+                for(var i = 0; i < hpQuantos; i++){
+                    hpStr+= '<a class="full_home_produtos_categoria" href="'+res["lk"+i]+'">';
+                    hpStr+=     '<div class="full_home_produtos_categoria_container full_home_produtos_categoria_container_p" style="background-image:url('+res["im"+i]+')"></div>';
+                    hpStr+=     '<div class="full_home_produtos_categoria_texto">';
+                    hpStr+=         '<div class="full_home_produtos_categoria_texto_ct full_home_produtos_categoria_texto_ct_p" style="background-color:'+res["bg"+i]+'">';
+                    hpStr+=             '<span>'+res["tx"+i]+'</span>';
+                    hpStr+=         '</div>';
+                    hpStr+=     '</div>';
+                    hpStr+= '</a>';
+                }
+                $("#full_home_produtos_categorias").html(hpStr);
+                $("#sel_home_produtos_categoria").val(onde);
+            }else{
+                $("#full_home_produtos_categorias").html("<div class='hp_nenhum'>Nenhum resultado encontrado</div>");
+            }
+        }else{
+            $("#full_home_produtos_categorias").html("<div class='hp_nenhum'>Nenhum resultado encontrado</div>");
+        }
+    },"json");
+}
+
+function linkFamPat(familia, patologia){
+    if(familia != "" && typeof familia !== "undefined" && patologia != "" && typeof patologia !== "undefined"){
+        $("#frm_fam_inputX").val(familia);
+        $("#frm_pat_inputX").val(patologia);
+        $("#frm_familia").submit();
+    }else if(familia != "" && typeof familia !== "undefined"){
+        $("#frm_fam_inputX").val(familia);
+        $("#frm_familia").submit();
+    }else if(patologia != "" && typeof patologia !== "undefined"){
+        $("#frm_pat_inputX").val(patologia);
+        $("#frm_familia").submit();
+    }
+}
+
+var abreCat = 0;
+
+function abreMenuCat(quem,onde,e){
+    if(abreCat == 0){
+        abreCat = 1;
+        var tmMC = setTimeout(function(){clearTimeout(tmMC);abreCat = 0;},500);
+        e.stopPropagation();
+        var mcHeight = $("#menu_categorias").height();
+        var mcoHeight = $("#menu_categorias_container").height();
+        var monHeight = $(onde).height();
+
+        $(".menu_categorias_todos").unbind("click");
+        $(".menu_categorias_todos").on("click",function(){
+            document.location.href = quem;
+        });
+    
+        $("#menu_segmentos").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+        
+        $("#menu_hotsites").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+        
+        if($(".full_menu_item").height() == 45){
+            if(monHeight != 39){
+                if(abreCat == 0){
+                    //document.location.href = quem;
+                    $("#submenu_categorias").toggle();
+                    $("#submenu_segmentos").hide();
+                }
+            }else{
+                if(mcHeight == 0 || mcHeight == "" || mcHeight == null || typeof mcHeight == "undefined"){
+                    $("#menu_categorias").css({
+                        "height":mcoHeight,
+                        "overflow":"none",
+                        //"background-color":"rgba(255,255,255,0.98)",
+                        "border-bottom":"rgba(248,226,52,0) solid 3px"
+                    });
+                    $(".lat1").addClass("lat_aberto");
+                    $(".lat2").addClass("lat_aberto");
+                    $(".black_menu").addClass("black_menu_aberto");
+                    $("#menu_categorias_container").unbind("mouseover");
+                    $(".xhov2").unbind("mouseover");
+                    $("#menu_categorias_container").on("mouseover",function(e){
+                        if(abreCat == 0){
+                            e.preventDefault();
+                            $(".xhov2").on("mouseover",function(){
+                                $("#menu_categorias").css({
+                                    "height":"0",
+                                    "overflow":"hidden",
+                                    "background-color":"rgba(255,255,255,0)",
+                                    "border-bottom":"rgba(248,226,52,0) solid 3px"
+                                });
+                                $(".lat1").removeClass("lat_aberto");
+                                $(".lat2").removeClass("lat_aberto");
+                                $(".black_menu").removeClass("black_menu_aberto");
+                                $("#menu_categorias_container").unbind("mouseover");
+                                $(".xhov2").unbind("mouseover");
+                            });
+                        }
+                    });
+                }else{
+                    $("#menu_categorias").css({
+                        "height":"0",
+                        "overflow":"hidden",
+                        "background-color":"rgba(255,255,255,0)",
+                        "border-bottom":"rgba(248,226,52,0) solid 3px"
+                    });
+                    $(".black_menu").removeClass("black_menu_aberto");
+                }
+            }
+        }else{
+            $("#submenu_categorias").toggle();
+        }
+    }
+}
+
+function abreMenuSeg(quem,onde,e){
+    if(abreCat == 0){
+        abreCat = 1;
+        var tmMC = setTimeout(function(){clearTimeout(tmMC);abreCat = 0;},500);
+        e.stopPropagation();
+        var mcHeight = $("#menu_segmentos").height();
+        var mcoHeight = $("#menu_segmentos_container").height();
+        var monHeight = $(onde).height();
+    
+        $(".menu_segmentos_todos").unbind("click");
+        $(".menu_segmentos_todos").on("click",function(){
+            document.location.href = quem;
+        });
+    
+        $("#menu_categorias").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+        
+        $("#menu_hotsites").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+    
+        //if($(".full_menu_item").height() == 45){
+		//if(abreCat == 1){
+		if($(".full_menu_item").height() <= 45){
+            if(monHeight != 39){
+                if(abreCat == 0){
+                    //document.location.href = quem;
+                    $("#submenu_segmentos").toggle();
+                    $("#submenu_categorias").hide();
+                }
+            }else{
+                if(mcHeight == 0 || mcHeight == "" || mcHeight == null || typeof mcHeight == "undefined"){
+                    $("#menu_segmentos").css({
+                        "height":mcoHeight,
+                        "overflow":"none",
+                        //"background-color":"rgba(255,255,255,0.98)",
+                        "border-bottom":"rgba(248,226,52,0) solid 3px"
+                    });
+                    $(".black_menu").addClass("black_menu_aberto");
+                    $(".lat1").addClass("lat_aberto");
+                    $(".lat2").addClass("lat_aberto");
+                    $("#menu_segmentos_container").unbind("mouseover");
+                    $(".xhov2").unbind("mouseover");
+                    $("#menu_segmentos_container").on("mouseover",function(e){
+                        if(abreCat == 0){
+                            e.preventDefault();
+                            $(".xhov2").on("mouseover",function(){
+                                $("#menu_segmentos").css({
+                                    "height":"0",
+                                    "overflow":"hidden",
+                                    "background-color":"rgba(255,255,255,0)",
+                                    "border-bottom":"rgba(248,226,52,0) solid 3px"
+                                });
+                                $(".lat1").removeClass("lat_aberto");
+                                $(".lat2").removeClass("lat_aberto");
+                                $(".black_menu").removeClass("black_menu_aberto"); 
+                                $("#menu_segmentos_container").unbind("mouseover");
+                                $(".xhov2").unbind("mouseover");
+                            });
+                        }
+                    });
+                }else{
+                    $("#menu_segmentos").css({
+                        "height":"0",
+                        "overflow":"hidden",
+                        "background-color":"rgba(255,255,255,0)",
+                        "border-bottom":"rgba(248,226,52,0) solid 3px"
+                    });
+                    $(".black_menu").removeClass("black_menu_aberto");
+                }
+            }
+        }else{
+            $("#submenu_segmentos").toggle();
+        }
+    }
+}
+
+function abreMenuHot(quem,onde,e){
+    if(abreCat == 0){
+        abreCat = 1;
+        var tmMC = setTimeout(function(){clearTimeout(tmMC);abreCat = 0;},500);
+        e.stopPropagation();
+        var mcHeight = $("#menu_hotsites").height();
+        var mcoHeight = $("#menu_hotsites_container").height();
+        var monHeight = $(onde).height();
+    
+        $(".menu_hotsites_todos").unbind("click");
+        $(".menu_hotsites_todos").on("click",function(){
+            document.location.href = quem;
+        });
+    
+        $("#menu_categorias").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+    
+        $("#menu_segmentos").css({
+            "height":"0",
+            "overflow":"hidden",
+            "background-color":"rgba(255,255,255,0)",
+            "border-bottom":"rgba(248,226,52,0) solid 3px"
+        });
+    
+        if($(".full_menu_item").height() == 45){
+            if(monHeight != 39){
+                if(abreCat == 0){
+                    document.location.href = quem;
+                }
+            }else{
+                if(mcHeight == 0 || mcHeight == "" || mcHeight == null || typeof mcHeight == "undefined"){
+                    $("#menu_hotsites").css({
+                        "height":mcoHeight,
+                        "overflow":"none",
+                        //"background-color":"rgba(255,255,255,0.98)",
+                        "border-bottom":"rgba(248,226,52,0) solid 3px"
+                    });
+                    $(".black_menu").addClass("black_menu_aberto");
+                    $(".lat1").addClass("lat_aberto");
+                    $(".lat2").addClass("lat_aberto");
+                    $("#menu_hotsites_container").unbind("mouseover");
+                    $(".xhov2").unbind("mouseover");
+                    $("#menu_hotsites_container").on("mouseover",function(e){
+                        if(abreCat == 0){
+                            e.preventDefault();
+                            $(".xhov2").on("mouseover",function(){
+                                $("#menu_hotsites").css({
+                                    "height":"0",
+                                    "overflow":"hidden",
+                                    "background-color":"rgba(255,255,255,0)",
+                                    "border-bottom":"rgba(248,226,52,0) solid 3px"
+                                });
+                                $(".lat1").removeClass("lat_aberto");
+                                $(".lat2").removeClass("lat_aberto");
+                                $(".black_menu").removeClass("black_menu_aberto"); 
+                                $("#menu_hotsites_container").unbind("mouseover");
+                                $(".xhov2").unbind("mouseover");
+                            });
+                        }
+                    });
+                }else{
+                    $("#menu_hotsites").css({
+                        "height":"0",
+                        "overflow":"hidden",
+                        "background-color":"rgba(255,255,255,0)",
+                        "border-bottom":"rgba(248,226,52,0) solid 3px"
+                    });
+                    $(".black_menu").removeClass("black_menu_aberto");
+                }
+            }
+        }else{
+            $("#submenu_hotsites").toggle();
+        }
+    }
+}
+
+function rastroFamilia(quem){
+    if(quem != "" && typeof quem !== "undefined" && parseInt(quem) > 0){
+        $("#busca_rastro_familia").val(quem);
+        $("#frmRastro").submit();
+    }
+}
+
+function enviaLigamos(sucesso,erro,aviso){
+    var erroEnvia = 0;
+    var erroCampo = "";
+    var txtAlerta = "";
+    var ligCNPJ = $("#frm_ligamos_cnpj").val();
+    var ligNome = $("#frm_ligamos_nome").val();
+    var ligMail = $("#frm_ligamos_email").val();
+    var ligFone = $("#frm_ligamos_fone").val();
+
+    if(ligNome == ""){erroCampo+= "NOME, ";erroEnvia++;}
+    if(ligMail == ""){erroCampo+= "E-MAIL ";erroEnvia++;}
+
+    if(erroEnvia > 0){
+        if(erroEnvia == 1){
+            erroCampo = erroCampo.replace(",","");
+            txtAlerta = "ATENÇÃO: O campo "+erroCampo+" deve ser preenchido.";
+        }else{
+            erroCampo+= "|";
+            erroCampo = erroCampo.replace(", |","");
+            txtAlerta = "ATENÇÃO: Os campos "+erroCampo+" devem ser preenchidos.";
+        }
+    }
+
+    if(erroEnvia == 0){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le_QbEUAAAAAAGRWsagyNdFColzlOdlGz-kkgs1', {action: 'contact2'}).then(function(token) {
+                fbq('init', '685675488980712');
+                fbq('track', 'Ligamos');
+                
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'AW-966714699');
+                gtag('event', 'conversion', {'send_to': 'AW-966714699/UVe2CLPPy90BEMvK-8wD'});
+                
+                $.post(pasta_home + "envia_ligamos.php",{cnpj: ligCNPJ, nome: ligNome, email: ligMail, fone: ligFone, token: token}, function(result) {
+                    if(result.success) {
+                        alert(result.mensagem);
+                        $("#frm_ligamos_cnpj").val("");
+                        $("#frm_ligamos_nome").val("");
+                        $("#frm_ligamos_email").val("");
+                        $("#frm_ligamos_fone").val("");
+                        $("#full_header_area_logo_cl").removeClass('full_header_area_logo_cl');
+                        fhalCL = 0;
+                    } else {
+                        $("#frm_ligamos_cnpj").val("");
+                        $("#frm_ligamos_nome").val("");
+                        $("#frm_ligamos_email").val("");
+                        $("#frm_ligamos_fone").val("");
+                        $("#full_header_area_logo_cl").removeClass('full_header_area_logo_cl');
+                        fhalCL = 0;
+                    }
+                });
+            });
+        });
+    }else{
+        alert(txtAlerta);
+    }
+}
+
+function enviaLigamosMob(sucesso,erro,aviso){
+    var erroEnvia = 0;
+    var erroCampo = "";
+    var txtAlerta = "";
+    var ligCNPJ = $("#frm_ligamos_cnpj_mob").val();
+    var ligNome = $("#frm_ligamos_nome_mob").val();
+    var ligMail = $("#frm_ligamos_email_mob").val();
+    var ligFone = $("#frm_ligamos_fone_mob").val();
+
+    if(ligNome == ""){erroCampo+= "NOME, ";erroEnvia++;}
+    if(ligMail == ""){erroCampo+= "E-MAIL ";erroEnvia++;}
+
+    if(erroEnvia > 0){
+        if(erroEnvia == 1){
+            erroCampo = erroCampo.replace(",","");
+            txtAlerta = "ATENÇÃO: O campo "+erroCampo+" deve ser preenchido.";
+        }else{
+            erroCampo+= "|";
+            erroCampo = erroCampo.replace(", |","");
+            txtAlerta = "ATENÇÃO: Os campos "+erroCampo+" devem ser preenchidos.";
+        }
+    }
+
+    if(erroEnvia == 0){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le_QbEUAAAAAAGRWsagyNdFColzlOdlGz-kkgs1', {action: 'contact2'}).then(function(token) {
+                fbq('init', '685675488980712');
+                fbq('track', 'Ligamos');
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'AW-966714699');
+                gtag('event', 'conversion', {'send_to': 'AW-966714699/UVe2CLPPy90BEMvK-8wD'});
+
+                $.post(pasta_home + "envia_ligamos.php",{cnpj: ligCNPJ, nome: ligNome, email: ligMail, fone: ligFone, token: token}, function(result) {
+                    if(result.success) {
+                        alert(result.mensagem);
+                        $("#frm_ligamos_cnpj_mob").val("");
+                        $("#frm_ligamos_nome_mob").val("");
+                        $("#frm_ligamos_email_mob").val("");
+                        $("#frm_ligamos_fone_mob").val("");
+                        $("#full_header_area_logo_cl_premob").hide();
+                        fhalCL = 0;
+                    } else {
+                        $("#frm_ligamos_cnpj_mob").val("");
+                        $("#frm_ligamos_nome_mob").val("");
+                        $("#frm_ligamos_email_mob").val("");
+                        $("#frm_ligamos_fone_mob").val("");
+                        $("#full_header_area_logo_cl_premob").hide();
+                        fhalCL = 0;
+                    }
+                });
+            });
+        });
+    }else{
+        alert(txtAlerta);
+    }
+}
+
+function enviaContato(){
+    var erroEnvia = 0;
+    var erroCampo = "";
+    var txtAlerta = "";
+    var nome      = $('#txt_nome').val();
+    var email     = $('#txt_email').val();
+    var fone      = $('#txt_telefone').val();
+    var celular   = $('#txt_celular').val();
+    var endereco  = $('#txt_endereco').val();
+    var bairro    = $('#txt_bairro').val();
+    var cidade    = $('#txt_cidade').val();
+    var estado    = $('#txt_estado').val();
+    var mensagem  = $("#txt_mensagem").val();
+
+    if(nome == ""){erroCampo+= "NOME, ";erroEnvia++;}
+    if(email == ""){erroCampo+= "E-MAIL, ";erroEnvia++;}
+    if(fone == ""){erroCampo+= "FONE, ";erroEnvia++;}
+    if(mensagem == ""){erroCampo+= "MENSAGEM, ";erroEnvia++;}
+
+    if(erroEnvia > 0){
+        if(erroEnvia == 1){
+            erroCampo = erroCampo.replace(",","");
+            txtAlerta = "ATENÇÃO: O campo "+erroCampo+" deve ser preenchido.";
+        }else{
+            erroCampo+= "|";
+            erroCampo = erroCampo.replace(", |","");
+            txtAlerta = "ATENÇÃO: Os campos "+erroCampo+" devem ser preenchidos.";
+        }
+    }
+
+    if(erroEnvia == 0){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le_QbEUAAAAAAGRWsagyNdFColzlOdlGz-kkgs1', {action: 'contact'}).then(function(token) {
+                $.post(pasta_home + "envia.php",{nome: nome, email: email, fone: fone, celular: celular, endereco: endereco, bairro: bairro, cidade: cidade, estado: estado, mensagem: mensagem, token: token}, function(result) {
+                    if(result.success) {
+                        alert(result.mensagem);
+                        $("#txt_nome").val("");
+                        $("#txt_email").val("");
+                        $("#txt_telefone").val("");
+                        $("#txt_celular").val("");
+                        $("#txt_endereco").val("");
+                        $("#txt_bairro").val("");
+                        $("#txt_cidade").val("");
+                        $("#txt_estado").val("");
+                        $("#txt_mensagem").val("");
+                    } else {
+                        $("#txt_nome").val("");
+                        $("#txt_email").val("");
+                        $("#txt_telefone").val("");
+                        $("#txt_celular").val("");
+                        $("#txt_endereco").val("");
+                        $("#txt_bairro").val("");
+                        $("#txt_cidade").val("");
+                        $("#txt_estado").val("");
+                        $("#txt_mensagem").val("");
+                    }
+                });
+            });
+        });
+    }else{
+        alert(txtAlerta);
+    }
+}
+
+function limpaContato(){
+    $("#txt_nome").val("");
+    $("#txt_email").val("");
+    $("#txt_telefone").val("");
+    $("#txt_celular").val("");
+    $("#txt_endereco").val("");
+    $("#txt_bairro").val("");
+    $("#txt_cidade").val("");
+    $("#txt_estado").val("");
+    $("#txt_mensagem").val("");
+}
+
+function enviaContato2(){
+    var erroEnvia = 0;
+    var erroCampo = "";
+    var txtAlerta = "";
+    var nome      = $('#footer_contato_nome').val();
+    var email     = $('#footer_contato_email').val();
+    var assunto   = $('#footer_contato_assunto').val();
+    var mensagem  = $("#footer_contato_mensagem").val();
+    if(nome == ""){erroCampo+= "NOME, ";erroEnvia++;}
+    if(email == ""){erroCampo+= "E-MAIL, ";erroEnvia++;}
+    if(assunto == ""){erroCampo+= "ASSUNTO, ";erroEnvia++;}
+    if(mensagem == ""){erroCampo+= "MENSAGEM, ";erroEnvia++;}
+    if(erroEnvia > 0){
+        if(erroEnvia == 1){
+            erroCampo = erroCampo.replace(",","");
+            txtAlerta = "ATENÇÃO: O campo "+erroCampo+" deve ser preenchido.";
+        }else{
+            erroCampo+= "|";
+            erroCampo = erroCampo.replace(", |","");
+            txtAlerta = "ATENÇÃO: Os campos "+erroCampo+" devem ser preenchidos.";
+        }
+    }
+    if(erroEnvia == 0){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le_QbEUAAAAAAGRWsagyNdFColzlOdlGz-kkgs1', {action: 'contact2'}).then(function(token) {
+                $.post(pasta_home + "envia2.php",{nome: nome, email: email, assunto: assunto, mensagem: mensagem, token: token}, function(result) {
+                    if(result.success) {
+                        alert(result.mensagem);
+                        $("#footer_contato_nome").val("");
+                        $("#footer_contato_email").val("");
+                        $("#footer_contato_assunto").val("");
+                        $("#footer_contato_mensagem").val("");
+                    } else {
+                        $("#footer_contato_nome").val("");
+                        $("#footer_contato_email").val("");
+                        $("#footer_contato_assunto").val("");
+                        $("#footer_contato_mensagem").val("");
+                    }
+                });
+            });
+        });
+    }else{
+        alert(txtAlerta);
+    }
+}
+
+function enviaTrabalhe(){
+    var erroEnvia     = 0;
+    var erroCampo     = "";
+    var txtAlerta     = "";
+    var txt_nome          = $('#txt_nome').val();
+    var txt_endereco      = $('#txt_endereco').val();
+    var txt_bairro        = $('#txt_bairro').val();
+    var txt_cidade        = $('#txt_cidade').val();
+    var txt_estado        = $('#txt_estado').val();
+    var txt_nascimento    = $('#txt_nascimento').val();
+    var txt_telefone      = $('#txt_telefone').val();
+    var txt_celular       = $('#txt_celular').val();
+    var txt_email         = $('#txt_email').val();
+    var txt_escolaridade  = $('#txt_escolaridade').val();
+    var txt_conhecimentos = $('#txt_conhecimentos').val();
+    var txt_atividades    = $("#txt_atividades").val();
+    var txt_adicionais    = $("#txt_adicionais").val();
+
+    if(txt_nome == ""){erroCampo+= "NOME, ";erroEnvia++;}
+    if(txt_endereco == ""){erroCampo+= "ENDEREÇO, ";erroEnvia++;}
+    if(txt_bairro == ""){erroCampo+= "BAIRRO, ";erroEnvia++;}
+    if(txt_cidade == ""){erroCampo+= "CIDADE, ";erroEnvia++;}
+    if(txt_estado == ""){erroCampo+= "ESTADO, ";erroEnvia++;}
+    if(txt_nascimento == ""){erroCampo+= "DATA DE NASCIMENTO, ";erroEnvia++;}
+    if(txt_telefone == ""){erroCampo+= "TELEFONE, ";erroEnvia++;}
+    if(txt_email == ""){erroCampo+= "E-MAIL, ";erroEnvia++;}
+    if(txt_conhecimentos == ""){erroCampo+= "RESUMO DOS CONHECIMENTOS, ";erroEnvia++;}
+    if(txt_atividades == ""){erroCampo+= "RESUMO DAS ATIVIDADES ";erroEnvia++;}
+
+    if(erroEnvia > 0){
+        if(erroEnvia == 1){
+            erroCampo = erroCampo.replace(",","");
+            txtAlerta = "ATENÇÃO: O campo "+erroCampo+" deve ser preenchido.";
+        }else{
+            erroCampo+= "|";
+            erroCampo = erroCampo.replace(", |","");
+            txtAlerta = "ATENÇÃO: Os campos "+erroCampo+" devem ser preenchidos.";
+        }
+    }
+
+    if(erroEnvia == 0){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le_QbEUAAAAAAGRWsagyNdFColzlOdlGz-kkgs1', {action: 'contact'}).then(function(token) {
+                $.post(pasta_home + "envia_trabalhe.php",{
+                        nome: txt_nome,
+                        endereco: txt_endereco,
+                        bairro: txt_bairro,
+                        cidade: txt_cidade,
+                        estado: txt_estado,
+                        dt_nasc: txt_nascimento,
+                        telefone: txt_telefone,
+                        celular: txt_celular,
+                        email: txt_email,
+                        escolaridade: txt_escolaridade,
+                        conhecimentos: txt_conhecimentos,
+                        atividades: txt_atividades,
+                        adicionais: txt_adicionais,
+                        token: token
+                    }, function(result) {
+                    if(result.success) {
+                        alert(result.mensagem);
+                        $("#txt_nome").val("");
+                        $("#txt_endereco").val("");
+                        $("#txt_bairro").val("");
+                        $("#txt_cidade").val("");
+                        $("#txt_estado").val("");
+                        $("#txt_nascimento").val("");
+                        $("#txt_telefone").val("");
+                        $("#txt_celular").val("");
+                        $("#txt_email").val("");
+                        $("#txt_escolaridade").val("");
+                        $("#txt_conhecimentos").val("");
+                        $("#txt_atividades").val("");
+                        $("#txt_adicionais").val("");
+                    } else {
+                        $("#txt_nome").val("");
+                        $("#txt_endereco").val("");
+                        $("#txt_bairro").val("");
+                        $("#txt_cidade").val("");
+                        $("#txt_estado").val("");
+                        $("#txt_nascimento").val("");
+                        $("#txt_telefone").val("");
+                        $("#txt_celular").val("");
+                        $("#txt_email").val("");
+                        $("#txt_escolaridade").val("");
+                        $("#txt_conhecimentos").val("");
+                        $("#txt_atividades").val("");
+                        $("#txt_adicionais").val("");
+                    }
+                });
+            });
+        });
+    }else{
+        alert(txtAlerta);
+    }
+}
+
+function limpaTrabalhe(){
+    $("#txt_nome").val("");
+    $("#txt_cnpj").val("");
+    $("#txt_razao_social").val("");
+    $("#txt_nome_fantasia").val("");
+    $("#txt_email").val("");
+    $("#txt_telefone").val("");
+    $("#txt_celular").val("");
+    $("#txt_endereco").val("");
+    $("#txt_bairro").val("");
+    $("#txt_cidade").val("");
+    $("#txt_estado").val("");
+    $("#txt_observacoes").val("");
+}
+
+function enviaRevenda(){
+    var erroEnvia     = 0;
+    var erroCampo     = "";
+    var txtAlerta     = "";
+    var nome          = $('#txt_nome').val();
+    var cnpj          = $('#txt_cnpj').val();
+    var razao_social  = $('#txt_razao_social').val();
+    var nome_fantasia = $('#txt_nome_fantasia').val();
+    var email         = $('#txt_email').val();
+    var telefone      = $('#txt_telefone').val();
+    var celular       = $('#txt_celular').val();
+    var endereco      = $('#txt_endereco').val();
+    var bairro        = $('#txt_bairro').val();
+    var cidade        = $('#txt_cidade').val();
+    var estado        = $('#txt_estado').val();
+    var observacoes   = $("#txt_observacoes").val();
+
+    window.dataLayer = window.dataLayer || [];
+    var gtag = function(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-966714699');
+    gtag('event', 'conversion', {'send_to': 'AW-966714699/zolaCOOQut0BEMvK-8wD'});
+
+    if(nome == ""){erroCampo+= "NOME, ";erroEnvia++;}
+    if(email == ""){erroCampo+= "E-MAIL, ";erroEnvia++;}
+    if(telefone == ""){erroCampo+= "FONE, ";erroEnvia++;}
+    //if(observacoes == ""){erroCampo+= "OBSERVAÇÕES, ";erroEnvia++;}
+
+    if(erroEnvia > 0){
+        if(erroEnvia == 1){
+            erroCampo = erroCampo.replace(",","");
+            txtAlerta = "ATENÇÃO: O campo "+erroCampo+" deve ser preenchido.";
+        }else{
+            erroCampo+= "|";
+            erroCampo = erroCampo.replace(", |","");
+            txtAlerta = "ATENÇÃO: Os campos "+erroCampo+" devem ser preenchidos.";
+        }
+    }
+
+    if(erroEnvia == 0){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le_QbEUAAAAAAGRWsagyNdFColzlOdlGz-kkgs1', {action: 'contact'}).then(function(token) {
+                //$.post(pasta_home + "envia_revenda.php",{nome: nome, cnpj: cnpj, razao_social: razao_social, nome_fantasia: nome_fantasia, email: email, telefone: telefone, celular: celular, endereco: endereco, bairro: bairro, cidade: cidade, estado: estado, observacoes: observacoes, token: token}, function(result) {
+                $.post(pasta_home + "envia_revenda.php",{nome: nome, cnpj: cnpj, email: email, telefone: telefone, token: token}, function(result) {
+                    if(result.success) {
+                        alert(result.mensagem);
+                        $("#txt_nome").val("");
+                        $("#txt_cnpj").val("");
+                        $("#txt_razao_social").val("");
+                        $("#txt_nome_fantasia").val("");
+                        $("#txt_email").val("");
+                        $("#txt_telefone").val("");
+                        $("#txt_celular").val("");
+                        $("#txt_endereco").val("");
+                        $("#txt_bairro").val("");
+                        $("#txt_cidade").val("");
+                        $("#txt_estado").val("");
+                        $("#txt_observacoes").val("");
+                    } else {
+                        $("#txt_nome").val("");
+                        $("#txt_cnpj").val("");
+                        $("#txt_razao_social").val("");
+                        $("#txt_nome_fantasia").val("");
+                        $("#txt_email").val("");
+                        $("#txt_telefone").val("");
+                        $("#txt_celular").val("");
+                        $("#txt_endereco").val("");
+                        $("#txt_bairro").val("");
+                        $("#txt_cidade").val("");
+                        $("#txt_estado").val("");
+                        $("#txt_observacoes").val("");
+                    }
+                });
+            });
+        });
+    }else{
+        alert(txtAlerta);
+    }
+}
+
+function limpaRevenda(){
+    $("#txt_nome").val("");
+    $("#txt_cnpj").val("");
+    $("#txt_razao_social").val("");
+    $("#txt_nome_fantasia").val("");
+    $("#txt_email").val("");
+    $("#txt_telefone").val("");
+    $("#txt_celular").val("");
+    $("#txt_endereco").val("");
+    $("#txt_bairro").val("");
+    $("#txt_cidade").val("");
+    $("#txt_estado").val("");
+    $("#txt_observacoes").val("");
+}
+
+function enviaNewsletter(){
+    var erroEnvia = 0;
+    var erroCampo = "";
+    var txtAlerta = "";
+    var nlx_nome  = $('#frm_newsletter_input_nome').val();
+    var nlx_email = $('#frm_newsletter_input_email').val();
+
+    if(nlx_nome == "" || nlx_email == ""){
+        erroEnvia++;
+        txtAlerta = "ATENÇÃO: Os campos NOME e E-MAIL devem ser preenchidos.";
+    }
+
+    if(erroEnvia == 0){
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le_QbEUAAAAAAGRWsagyNdFColzlOdlGz-kkgs1', {action: 'newsletter'}).then(function(nlx_token) {
+                $.post(pasta_home + "newsletter.php",{nl_nome: nlx_nome, nl_email: nlx_email, nl_token: nlx_token}, function(res) {
+                    if(res.success == "1") {
+                        alert(res.mensagem);
+                        $("#frm_newsletter_input_nome").val("");
+                        $("#frm_newsletter_input_email").val("");
+                    }else{
+                        $("#frm_newsletter_input_nome").val("");
+                        $("#frm_newsletter_input_email").val("");
+                        alert(res.mensagem);
+                    }
+                });
+            });
+        });
+    }else{
+        alert(txtAlerta);
+    }
+}
+
+function abre_janela(url, width, height, nome) {
+    var top; var left;
+    top = ( (screen.height/2) - (height/2) )
+    left = ( (screen.width/2) - (width/2) )
+    window.open(url,nome,'width='+width+',height='+height+',scrollbars=no,toolbar=no,location=no,status=no,menubar=no,resizable=no,left='+left+',top='+top);
+}
+
+function abre_ifr(url, width, height, nome) {
+    if(isMobile.any()){
+        document.location.href = url;
+    }else{
+        var oIframe = document.getElementById("ifrV");
+        var oDoc = oIframe.contentWindow || oIframe.contentDocument;
+        if (oDoc.document) {
+            oDoc = oDoc.document;
+        }
+        oDoc.location.href = url;
+    }
+}

@@ -1,0 +1,234 @@
+.animated  {
+  -webkit-animation-duration : 1000 ms  ;
+  animation-duration : 1000 ms  ;
+  -webkit-animation-fill-mode : both  ;
+  animation-fill-mode : both  ;
+}
+
+.owl-animated-out {
+  z-index : 1
+}
+
+.owl-animated-in {
+  z-index : 0
+}
+
+.fadeOut  {
+  -webkit-animation-name : fadeOut  ;
+  animation-name : fadeOut  ;
+}
+
+.op-carousel {
+    display: none;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+.op-carousel .op-stage {
+    position: relative;
+    -ms-touch-action: pan-Y;
+    touch-action: manipulation;
+    -moz-backface-visibility: hidden;
+}
+.op-carousel .op-stage:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.op-carousel .op-stage-outer {
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+}
+.op-carousel .op-wrapper,
+.op-carousel .op-item {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+}
+.op-carousel .op-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+.op-carousel .op-item img {
+    display: block;
+    width: 100%;
+}
+.op-carousel .op-nav.disabled,
+.op-carousel .op-dots.disabled {
+    display: none;
+}
+.op-carousel .op-nav .op-prev,
+.op-carousel .op-nav .op-next,
+.op-carousel .op-dot {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.op-carousel .op-nav button.op-prev,
+.op-carousel .op-nav button.op-next,
+.op-carousel button.op-dot {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+}
+.op-carousel.op-loaded {
+    display: block;
+}
+.op-carousel.op-loading {
+    opacity: 0;
+    display: block;
+}
+.op-carousel.op-hidden {
+    opacity: 0;
+}
+.op-carousel.op-refresh .op-item {
+    visibility: hidden;
+}
+.op-carousel.op-drag .op-item {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.op-carousel.op-grab {
+    cursor: move;
+    cursor: grab;
+}
+.op-carousel.op-rtl {
+    direction: rtl;
+}
+.op-carousel.op-rtl .op-item {
+    float: right;
+}
+
+.no-js .op-carousel {
+    display: block;
+}
+
+.op-carousel .animated {
+    animation-duration: 1000ms;
+    animation-fill-mode: both;
+}
+
+.op-carousel .op-animated-in {
+    z-index: 0;
+}
+
+.op-carousel .op-animated-out {
+    z-index: 1;
+}
+
+.op-carousel .fadeOut {
+    animation-name: fadeOut;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.op-height {
+    transition: height 500ms ease-in-out;
+}
+
+.op-carousel .op-item {
+
+}
+.op-carousel .op-item .op-lazy {
+    opacity: 0;
+    transition: opacity 400ms ease;
+}
+.op-carousel .op-item .op-lazy[src^=""], .op-carousel .op-item .op-lazy:not([src]) {
+    max-height: 0;
+}
+.op-carousel .op-item img.op-lazy {
+    transform-style: preserve-3d; 
+}
+
+.op-carousel .op-video-wrapper {
+    position: relative;
+    height: 100%;
+    background: #000; 
+}
+
+.op-carousel .op-video-play-icon {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -40px;
+    background: url("op.video.play.png") no-repeat;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    transition: transform 100ms ease; 
+}
+
+.op-carousel .op-video-play-icon:hover {
+    -ms-transform: scale(1.3, 1.3);
+    transform: scale(1.3, 1.3); 
+}
+
+.op-carousel .op-video-playing .op-video-tn,
+.op-carousel .op-video-playing .op-video-play-icon {
+    display: none; 
+}
+
+.op-carousel .op-video-tn {
+    opacity: 0;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: opacity 400ms ease; 
+}
+
+.op-carousel .op-video-frame {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%; 
+}
+
+@-webkit-keyframes  fadeOut  {
+  0% {
+    opacity : 1   ;
+  }  
+  100% {
+    opacity : 0   ;
+  }  
+}
+@keyframes  fadeOut  {
+  0% {
+    opacity : 1   ;
+  }  
+  100% {
+    opacity : 0   ;
+  }  
+}
